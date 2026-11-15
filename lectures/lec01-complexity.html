@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 01：時間複雜度與 Big-O 分析</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <strong>📘 CS 課程講義網站</strong>
+      <a href="../index.html">← 返回課程首頁</a>
+    </div>
+  </header>
+
+  <main>
+    <article class="lecture-card">
+      <span class="badge">Lecture 01</span>
+      <h1>時間複雜度與 Big-O 漸近分析</h1>
+
+      <div class="note-box">
+        <strong>學習目標：</strong>理解為什麼不用實際秒數評估程式效率，並學會計算基本迴圈的 Big-O 時間複雜度。
+      </div>
+
+      <h2>1. 什麼是 Big-O？</h2>
+      <p>Big-O 用來描述當輸入資料量 <code>n</code> 變得非常大時，演算法執行次數的成長上限（Upper Bound），通常會忽略常數項與低次方項。</p>
+      <ul>
+        <li><strong>O(1)</strong>：常數時間，例如直接讀取陣列第 i 個元素。</li>
+        <li><strong>O(log n)</strong>：對數時間，例如每次將搜尋範圍減半的二分搜尋。</li>
+        <li><strong>O(n)</strong>：線性時間，例如走訪整個陣列一次。</li>
+        <li><strong>O(n²)</strong>：平方時間，常見於雙層巢狀迴圈。</li>
+      </ul>
+
+      <h2>2. 程式碼範例分析</h2>
+      <p>以下雙層迴圈中，外層執行 n 次，內層也執行 n 次，因此總執行次數為 n × n，時間複雜度為 <strong>O(n²)</strong>：</p>
+      <pre><code>for (int i = 0; i &lt; n; i++) {
+    for (int j = 0; j &lt; n; j++) {
+        // 基本運算 O(1)
+    }
+}</code></pre>
+    </article>
+  </main>
+
+  <footer>
+    <p><a href="lec02-binary-search.html">下一講：Lecture 02 二分搜尋法 →</a></p>
+  </footer>
+</body>
+</html>
