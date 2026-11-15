@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 02：二分搜尋法</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <strong>📘 CS 課程講義網站</strong>
+      <a href="../index.html">← 返回課程首頁</a>
+    </div>
+  </header>
+
+  <main>
+    <article class="lecture-card">
+      <span class="badge">Lecture 02</span>
+      <h1>二分搜尋法（Binary Search）</h1>
+
+      <div class="note-box">
+        <strong>核心前提：</strong>資料必須先經過「排序（Sorted）」才能使用二分搜尋法，每次比較可排除一半的無效區間。
+      </div>
+
+      <h2>1. 演算法步驟</h2>
+      <ul>
+        <li>設定左右邊界 <code>left = 0</code> 與 <code>right = n - 1</code>。</li>
+        <li>計算中間索引 <code>mid = left + (right - left) / 2</code>（避免整數溢位）。</li>
+        <li>若 <code>arr[mid] == target</code>，直接回傳索引；若小於目標則往右半邊找，反之往左半邊找。</li>
+      </ul>
+
+      <h2>2. C++ 實作模板</h2>
+      <pre><code>int binarySearch(vector&lt;int&gt;&amp; arr, int target) {
+    int left = 0, right = arr.size() - 1;
+    while (left &lt;= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target) return mid;
+        else if (arr[mid] &lt; target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1; // 找不到目標
+}</code></pre>
+    </article>
+  </main>
+
+  <footer>
+    <p><a href="lec01-complexity.html">← 上一講：Lecture 01 時間複雜度</a></p>
+  </footer>
+</body>
+</html>
